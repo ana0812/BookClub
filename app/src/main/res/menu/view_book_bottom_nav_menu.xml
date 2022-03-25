@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_viewSummaries"
+        android:icon="@drawable/ic_baseline_text_snippet_24"
+        android:title="@string/title_viewSummaries" />
+
+    <item
+        android:id="@+id/navigation_bookInfo"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="@string/title_bookInfo" />
+
+    <item
+        android:id="@+id/navigation_addSummary"
+        android:icon="@drawable/ic_baseline_note_add_24"
+        android:title="@string/title_addSummary" />
+</menu>

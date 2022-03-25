@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="BookInfoFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imgBook"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Book name"
+            android:layout_below="@+id/imgBook"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:id="@+id/bookTitle"
+            android:textSize="25sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Book Author"
+            android:layout_below="@+id/bookTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/bookAuthor"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/wantToReadBtn"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/bookAuthor"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Want to read"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:text="Have read"
+            android:layout_below="@+id/wantToReadBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:id="@+id/haveReadBtn"/>
+
+    </RelativeLayout>
+
+</FrameLayout>
