@@ -1,4 +1,4 @@
-package com.example.bookclub;
+package com.example.bookclub.ui.start;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.bookclub.database.DBHelper;
 import com.example.bookclub.Models.BookModel;
+import com.example.bookclub.R;
 
 import java.util.ArrayList;
 import java.util.List;

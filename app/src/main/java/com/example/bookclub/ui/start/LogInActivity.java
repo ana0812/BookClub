@@ -1,4 +1,4 @@
-package com.example.bookclub;
+package com.example.bookclub.ui.start;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bookclub.database.DBHelper;
+import com.example.bookclub.HomeActivity2;
 import com.example.bookclub.Models.UserModel;
+import com.example.bookclub.R;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -20,7 +23,7 @@ public class LogInActivity extends AppCompatActivity {
     /**
      * the user that is currently logged in
      */
-    static UserModel user;
+    public static UserModel user;
     private TextView incorect;
 
     @Override

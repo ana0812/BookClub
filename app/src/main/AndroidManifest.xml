@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookClub">
         <activity
+            android:name=".HaveReadActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewBookActivity"
             android:exported="false"
             android:label="@string/title_activity_view_book" />
@@ -20,13 +23,13 @@
             android:exported="false"
             android:label="@string/title_activity_home2" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".ui.start.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".LogInActivity"
+            android:name=".ui.start.LogInActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.start.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

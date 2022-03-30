@@ -19,4 +19,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ProfileHaveReadBtn"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:text="Have Read"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greetingTxt" />
+
+    <Button
+        android:id="@+id/ProfileWantToreadBtn"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:text="Want to read"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/ProfileHaveReadBtn"
+        app:layout_constraintStart_toStartOf="@+id/ProfileHaveReadBtn"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileHaveReadBtn" />
+
+    <Button
+        android:id="@+id/mySummariesBtn"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:text="My summaries"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/ProfileWantToreadBtn"
+        app:layout_constraintStart_toStartOf="@+id/ProfileWantToreadBtn"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileWantToreadBtn" />
+
+    <TextView
+        android:id="@+id/greetingTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello User!"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

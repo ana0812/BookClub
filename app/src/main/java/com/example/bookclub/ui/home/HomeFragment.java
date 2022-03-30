@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.bookclub.Models.BookModel;
-import com.example.bookclub.DBHelper;
+import com.example.bookclub.database.DBHelper;
 import com.example.bookclub.ViewBookActivity;
 import com.example.bookclub.databinding.FragmentHomeBinding;
 

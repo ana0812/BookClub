@@ -14,8 +14,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookclub.Models.SummaryModel;
-import com.example.bookclub.databinding.FragmentAddSummaryBinding;
+import com.example.bookclub.database.DBHelper;
 import com.example.bookclub.ui.home.HomeFragment;
+import com.example.bookclub.ui.start.LogInActivity;
 
 public class AddSummaryFragment extends Fragment {
     private FragmentAddSummaryBinding binding;

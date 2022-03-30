@@ -48,15 +48,15 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/haveReadBtn"
             android:layout_width="180dp"
             android:layout_height="60dp"
-            android:text="Have read"
             android:layout_below="@+id/wantToReadBtn"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
+            android:text="Have read"
             android:textAllCaps="false"
-            android:textSize="20sp"
-            android:id="@+id/haveReadBtn"/>
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
