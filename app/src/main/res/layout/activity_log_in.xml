@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.start.LogInActivity">
+    tools:context=".ui.start.LogInActivity"
+    android:background="@color/nude">
 
 
     <TextView
@@ -14,7 +15,7 @@
         android:layout_marginTop="125dp"
         android:text="LOG IN"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -75,11 +76,13 @@
 
     <Button
         android:id="@+id/logInBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
         android:layout_marginTop="60dp"
+        android:fontFamily="@font/roboto_medium_italic"
         android:text="Log in"
         android:textAllCaps="false"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />

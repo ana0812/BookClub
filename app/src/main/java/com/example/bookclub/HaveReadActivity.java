@@ -19,14 +19,26 @@ import java.util.List;
 public class HaveReadActivity extends AppCompatActivity {
 
     private List<BookModel> bookList;
+    private DBHelper dbh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_have_read);
 
-        DBHelper dbh = new DBHelper(this);
-        bookList = dbh.getHaveRead(LogInActivity.user.getId());
+        //get the string from other activity to know what list you are talking about
+        //2 possibilities: wantToRead / haveRead
+        Bundle extras = getIntent().getExtras();
+        String type = extras.getString("type");
+
+        dbh = new DBHelper(this);
+
+        if(type.equals("haveRead")){
+            bookList = dbh.getHaveRead(LogInActivity.user.getId());
+        }
+        else if(type.equals("wantToRead")){
+            bookList = dbh.getWantToRead(LogInActivity.user.getId());
+        }
 
         if(bookList == null){
             findViewById(R.id.relLayout).setVisibility(View.GONE);
@@ -39,6 +51,6 @@ public class HaveReadActivity extends AppCompatActivity {
         }
 
         dbh.close();
-
     }
+
 }

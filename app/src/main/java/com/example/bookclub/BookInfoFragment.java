@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.bookclub.database.DBHelper;
+import com.example.bookclub.databinding.FragmentBookInfoBinding;
 import com.example.bookclub.ui.home.HomeFragment;
 import com.example.bookclub.ui.start.LogInActivity;
 

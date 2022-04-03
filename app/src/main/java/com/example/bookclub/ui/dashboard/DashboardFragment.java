@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.bookclub.HaveReadActivity;
+import com.example.bookclub.MySummariesActivity;
 import com.example.bookclub.databinding.FragmentDashboardBinding;
 import com.example.bookclub.ui.start.LogInActivity;
 
@@ -55,6 +56,23 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(context, HaveReadActivity.class);
                 intent.putExtra("type","haveRead");
+                startActivity(intent);
+            }
+        });
+
+        wantToRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, HaveReadActivity.class);
+                intent.putExtra("type","wantToRead");
+                startActivity(intent);
+            }
+        });
+
+        mySummaries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MySummariesActivity.class);
                 startActivity(intent);
             }
         });

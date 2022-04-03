@@ -35,7 +35,7 @@ public class ViewSummariesFragment extends Fragment {
         context = container.getContext();
 
         DBHelper dbh = new DBHelper(context);
-        summariesList = dbh.getSummaries(HomeFragment.book.getId());
+        summariesList = dbh.getPublicSummaries(HomeFragment.book.getId());
 
         //daca nu exista inca rezumate scrise la aceasta carte
         if(summariesList == null){

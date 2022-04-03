@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.example.bookclub.Models.BookModel;
+import com.example.bookclub.Models.BookSummary;
 import com.example.bookclub.Models.SummaryModel;
 import com.example.bookclub.Models.UserModel;
 
@@ -230,9 +231,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    public List<String> getSummaries(int bookID){
+    /**
+     * Gets all public summaries for the book with the id bookID
+     * @param bookID
+     * @return
+     */
+    public List<String> getPublicSummaries(int bookID){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT summary from summaries where bookID = ?",
+        Cursor cursor = db.rawQuery("SELECT summary from summaries where bookID = ? AND visible = 1",
                 new String []{String.valueOf(bookID)});
 
         //daca exista rezumate scrise la cartea respectiva
@@ -247,6 +253,36 @@ public class DBHelper extends SQLiteOpenHelper {
             cursor.close();
             db.close();
             return listaRezumate;
+        }
+
+        cursor.close();
+        db.close();
+        return null;
+    }
+
+    /**
+     * gets all summaries + book name written by the user with the id userID
+     * @param userID
+     * @return
+     */
+    public List<BookSummary> getAllSummaries(int userID){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT summaries.summary, books.name from summaries,books where summaries.userID = ? AND books.id = summaries.bookID",
+                new String []{String.valueOf(userID)});
+
+        //daca exista rezumate scrise la cartea respectiva
+        if(cursor.moveToFirst()){
+
+            List<BookSummary> lista = new ArrayList<>();
+
+            do{
+                lista.add(new BookSummary(cursor.getString(1), cursor.getString(0)));
+            } while(cursor.moveToNext());
+
+            cursor.close();
+            db.close();
+            System.out.println(lista.toString());
+            return lista;
         }
 
         cursor.close();
@@ -283,6 +319,35 @@ public class DBHelper extends SQLiteOpenHelper {
         return false;
     }
 
+    public List<BookModel> getWantToRead(int userID){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT books.name, books.author, books.urlPhoto from books, wantToRead where wantToRead.bookID = books.id AND wantToRead.userID = ?",
+                new String []{String.valueOf(userID)});
+
+        if(cursor.moveToFirst()){
+
+            List<BookModel> listaCarti = new ArrayList<>();
+
+            do{
+                listaCarti.add(new BookModel(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
+            } while(cursor.moveToNext());
+
+            cursor.close();
+            db.close();
+            return listaCarti;
+        }
+
+        cursor.close();
+        db.close();
+        return null;
+    }
+
+    /**
+     * adds the book with the bookID in the haveRead table with the user with userID
+     * @param userID
+     * @param bookID
+     * @return true for success, false for failure
+     */
     public boolean addHaveRead(int userID, int bookID){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -296,6 +361,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     *
+     * @param userID
+     * @param bookID
+     * @return true if book with bookID had been read by user with userID, false otherwise
+     */
     public boolean checkHaveRead(int userID, int bookID){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * from haveRead where userID = ? AND bookID = ?",
@@ -312,6 +383,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return false;
     }
 
+    /**
+     *
+     * @param userID
+     *
+     * join between books table & haveRead table to get the books from haveRead with the userID
+     *
+     * @return list of books containing name, author and urlPhoto OR null
+     */
     public List<BookModel> getHaveRead(int userID){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT books.name, books.author, books.urlPhoto from books, haveRead where haveRead.bookID = books.id AND haveRead.userID = ?",
